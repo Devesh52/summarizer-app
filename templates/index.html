@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        textarea { width: 100%; height: 200px; }
+        pre { background: #f0f0f0; padding: 1rem; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>Project Summarizer</h1>
+    <form method="POST">
+        <label for="project_data">Enter your project description:</label><br>
+        <textarea name="project_data" required>{{ input_text or "" }}</textarea><br><br>
+        <button type="submit">Summarize</button>
+    </form>
+
+    {% if extractive_summary %}
+        <h2>Extractive Summary</h2>
+        <pre>{{ extractive_summary }}</pre>
+    {% endif %}
+
+    {% if abstractive_summary %}
+        <h2>Abstractive Summary</h2>
+        <pre>{{ abstractive_summary }}</pre>
+    {% endif %}
+</body>
+</html>
